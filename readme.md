@@ -40,19 +40,17 @@ https://suiexplorer.com/object/0x874be8424dfc6b1c901120b56e7102cfe055b2735dcc133
 发布的coin包2
 https://suiexplorer.com/object/0x38743985b71d2435e4b381bd25b1d527f069ae694d72e0ef9817674ea160972c?network=testnet
 
-sui client call \
---function mint \
---module managed \
---package 0x38743985b71d2435e4b381bd25b1d527f069ae694d72e0ef9817674ea160972c \ # 包id
---args 0x7b2b9c68340fdba93b18bcb580ce81449589c6674f609669c0c07a0ed7e06826 100 0x527e28dfeeb98ebac8fd78b6924780b34b6210d73c05b9d2523f8c0c580a3b8a \ # 代币id 代币数量 接收地址
---gas-budget 100000000
+调用函数铸造代币
+`sui client call --function mint --module managed --package 0x38743985b71d2435e4b381bd25b1d527f069ae694d72e0ef9817674ea160972c --args 0x7b2b9c68340fdba93b18bcb580ce81449589c6674f609669c0c07a0ed7e06826 100 0x527e28dfeeb98ebac8fd78b6924780b34b6210d73c05b9d2523f8c0c580a3b8a --gas-budget 100000000`
 
-sui client call \
---function burn \
---module managed \
---package 0x38743985b71d2435e4b381bd25b1d527f069ae694d72e0ef9817674ea160972c \
---args 0x7b2b9c68340fdba93b18bcb580ce81449589c6674f609669c0c07a0ed7e06826 0x9b52a6a8a80b4a13c6ca871b32cefe379ffe29b50f53c9fa2a391975b2961888 \
---gas-budget 100000000
+调用函数销毁代币
+`sui client call --function burn --module managed --package 0x38743985b71d2435e4b381bd25b1d527f069ae694d72e0ef9817674ea160972c --args 0x7b2b9c68340fdba93b18bcb580ce81449589c6674f609669c0c07a0ed7e06826 0x9b52a6a8a80b4a13c6ca871b32cefe379ffe29b50f53c9fa2a391975b2961888 --gas-budget 100000000`
 
 # mint NFT
+编译项目
+`sui move build`
+发布项目
+`sui client publish --gas-budget 10000000`
 
+调用函数铸造nft
+`sui client call --function mint_to_sender --module devnet_nft --package 0x1e6be540a65d246eb7da95c732207271392b590c5cf9305f4246f238d328b304 --args nft_name nft_description https://ordinals.com/content/9997493013e8dceb5320737a8396d2991b4f766596569f6d14a34b157520ae69i0 --gas-budget 10000000`
